@@ -42,8 +42,6 @@
 #include "ass_library.h"
 #include "ass_fontselect.h"
 #include "ass_fontconfig.h"
-#include "ass_coretext.h"
-#include "ass_directwrite.h"
 #include "ass_font.h"
 #include "ass_string.h"
 
@@ -967,12 +965,6 @@ struct font_constructors {
 };
 
 struct font_constructors font_constructors[] = {
-#ifdef CONFIG_CORETEXT
-    { ASS_FONTPROVIDER_CORETEXT,        &ass_coretext_add_provider,     "coretext"},
-#endif
-#ifdef CONFIG_DIRECTWRITE
-    { ASS_FONTPROVIDER_DIRECTWRITE,     &ass_directwrite_add_provider,  "directwrite"},
-#endif
 #ifdef CONFIG_FONTCONFIG
     { ASS_FONTPROVIDER_FONTCONFIG,      &ass_fontconfig_add_provider,   "fontconfig"},
 #endif

@@ -8,6 +8,6 @@ Description: LibASS fork for WebAssembly
 Version: @PACKAGE_VERSION@
 Requires: @PKG_REQUIRES_DEFAULT@
 Requires.private: @PKG_REQUIRES_PRIVATE@
-Libs: -L${libdir} -lass @PKG_LIBS_DEFAULT@
+Libs: -L${libdir} -lass_octopus @PKG_LIBS_DEFAULT@
 Libs.private: @PKG_LIBS_PRIVATE@
 Cflags: -I${includedir}

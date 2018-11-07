@@ -1,4 +1,4 @@
-AC_INIT(libass-octopus, 0.14.0)
+AC_INIT(libass_octopus, 0.14.0)
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
 # Disable Fortran checks
@@ -115,5 +115,5 @@ AC_SUBST([PKG_REQUIRES_PRIVATE], [$(test x$enable_shared = xno || echo ${pkg_req
 # Setup output beautifier.
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
-AC_CONFIG_FILES([Makefile libass/Makefile test/Makefile profile/Makefile libass.pc])
+AC_CONFIG_FILES([Makefile libass/Makefile libass_octopus.pc])
 AC_OUTPUT
