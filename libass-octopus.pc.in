@@ -3,8 +3,8 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
-Name: libass
-Description: LibASS is an SSA/ASS subtitles rendering library
+Name: libass-octopus
+Description: LibASS fork for WebAssembly
 Version: @PACKAGE_VERSION@
 Requires: @PKG_REQUIRES_DEFAULT@
 Requires.private: @PKG_REQUIRES_PRIVATE@

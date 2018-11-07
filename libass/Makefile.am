@@ -7,20 +7,7 @@ LIBASS_LT_CURRENT = 9
 LIBASS_LT_REVISION = 2
 LIBASS_LT_AGE = 0
 
-nasm_verbose = $(nasm_verbose_$(V))
-nasm_verbose_ = $(nasm_verbose_$(AM_DEFAULT_VERBOSITY))
-nasm_verbose_0 = @echo "  NASM    " $@;
-
-.asm.lo:
-	$(nasm_verbose)$(LIBTOOL) $(AM_V_lt) --tag=CC --mode=compile $(AS) $(ASFLAGS) -I$(srcdir)/ -o $@ $< -prefer-non-pic
-
-SRC_INTEL = x86/rasterizer.asm x86/blend_bitmaps.asm x86/blur.asm x86/cpuid.asm \
-            x86/cpuid.h
-SRC_INTEL64 = x86/be_blur.asm
-
 SRC_FONTCONFIG = ass_fontconfig.c ass_fontconfig.h
-SRC_DIRECTWRITE = ass_directwrite.c ass_directwrite.h dwrite_c.h
-SRC_CORETEXT = ass_coretext.c ass_coretext.h
 
 lib_LTLIBRARIES = libass.la
 libass_la_SOURCES = ass.h ass.c ass_types.h ass_utils.h ass_utils.c \
@@ -40,24 +27,7 @@ if FONTCONFIG
 libass_la_SOURCES += $(SRC_FONTCONFIG)
 endif
 
-if DIRECTWRITE
-libass_la_SOURCES += $(SRC_DIRECTWRITE)
-endif
-
-if CORETEXT
-libass_la_SOURCES += $(SRC_CORETEXT)
-endif
-
-if ASM
-if INTEL
-libass_la_SOURCES += $(SRC_INTEL)
-if X64
-libass_la_SOURCES += $(SRC_INTEL64)
-endif
-endif
-endif
-
 assheadersdir = $(includedir)/ass
 dist_assheaders_HEADERS = ass.h ass_types.h
 
-EXTRA_DIST = libass.sym x86/x86inc.asm x86/utils.asm
+EXTRA_DIST = libass.sym

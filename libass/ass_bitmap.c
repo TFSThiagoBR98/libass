@@ -42,23 +42,6 @@
 #undef ALIGN
 #undef DECORATE
 
-#if (defined(__i386__) || defined(__x86_64__)) && CONFIG_ASM
-
-#define ALIGN           4
-#define DECORATE(func)  ass_##func##_sse2
-#include "ass_func_template.h"
-#undef ALIGN
-#undef DECORATE
-
-#define ALIGN           5
-#define DECORATE(func)  ass_##func##_avx2
-#include "ass_func_template.h"
-#undef ALIGN
-#undef DECORATE
-
-#endif
-
-
 void ass_synth_blur(const BitmapEngine *engine, int opaque_box, int be,
                     double blur_radius, Bitmap *bm_g, Bitmap *bm_o)
 {

@@ -64,16 +64,7 @@ ASS_Renderer *ass_renderer_init(ASS_Library *library)
     priv->ftlibrary = ft;
     // images_root and related stuff is zero-filled in calloc
 
-#if (defined(__i386__) || defined(__x86_64__)) && CONFIG_ASM
-    if (has_avx2())
-        priv->engine = &ass_bitmap_engine_avx2;
-    else if (has_sse2())
-        priv->engine = &ass_bitmap_engine_sse2;
-    else
-        priv->engine = &ass_bitmap_engine_c;
-#else
     priv->engine = &ass_bitmap_engine_c;
-#endif
 
     if (!rasterizer_init(&priv->rasterizer, priv->engine->tile_order, 16)) {
         FT_Done_FreeType(ft);
